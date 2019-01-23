@@ -1,0 +1,11 @@
+1. Your project is likely to use static resources, including JavaScript, CSS, and images. Because the location of these files might not be known (or might change), Django allows you to specify the location in your templates relative to the STATIC_URL global setting. The default skeleton website sets the value of STATIC_URL to '/static/', but you might choose to host these on a content delivery network or elsewhere.
+
+2. Within the template you first call the load template tag specifying "static" to add the template library, as shown in the code sample below. You can then use the static template tag and specify the relative URL to the required file.
+<!-- Add additional CSS in static file --> 
+{% load static %} 
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+3.  can add an image into the page in a similar way, for example:
+{% load static %}
+<img src="{% static 'catalog/images/local_library_model_uml.png' %}" alt="UML diagram" style="width:555px;height:540px;">
+

@@ -1,0 +1,21 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}
+	<title>Local Library - Authors list</title>
+{% endblock %}
+
+{% block content %}
+	<h1>Local Library - Authors List</h1>
+	<p>These are our favorites authors:</p>
+	<div style="margin-top:50px;">
+		{% if author_list %}
+			<ul style="background: antiquewhite;padding-top:40px;padding-bottom:5px;max-width: 780px;">
+				{% for author in author_list %}
+					<li style="margin-bottom:40px;"><a style="font-weight:bold;" href="{{ author.get_absolute_url }}">{{ author }} ({% if author.date_of_birth %}{{ author.date_of_birth }}{% endif %} - {% if author.date_of_death %}{{ author.date_of_death }}{% endif %})</a></li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<p>There are no authors available in the library.</p>
+		{% endif %}
+	</div>	
+{% endblock %}

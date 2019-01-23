@@ -1,0 +1,11 @@
+body { background-color: linen; }
+
+.sidebar-nav {
+	margin-top: 20px;
+	padding: 0;
+	list-style: none;
+}
+
+/*.
+page-current p { display: inline; margin-left: 8px; margin-right: 8px; }
+*/

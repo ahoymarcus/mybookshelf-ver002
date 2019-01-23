@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+	<title>Local Library - HOME</title>
+{% endblock %}
+
+{% block content %}
+	<h1>Local Library Home</h1>
+	<p>Welcome to LocalLibrary-app, a website developed by <em>Mozilla Developer Network</em>!</p>
+	<div style="background: antiquewhite;padding:25px 0 5px 20px;margin-top:60px;max-width: 780px;">
+		<h2 style="">Contents</h2>
+		<p>Our library has the following record counts:</p>
+		<ul>
+			<li><strong>Books:</strong> {{ num_books }}</li>
+			<li><strong>Book copies:</strong> {{ num_instances }}</li>
+			<li><strong>Copies available:</strong>  {{ num_instances_available}}</li>
+			<li><strong>Authors:</strong> {{ num_authors }}</li>
+			<li><strong>Books about Python programming:</strong> {{ num_python_words }}</li>
+		</ul>
+		<hr style="margin-top:45px;margin-bottom:45px;" />
+		<div>
+			<ul style="padding:15px 0 5px 10px; list-style:none">
+				{% for python in name_python_books %}
+					<!-- <li style="margin-bottom:2px"><a style="font-weight: bold;" href="{{ book.get_absolute_url }}">{{ python.title }}</a> ({{ python.author }})</li> -->
+					<li style="margin-bottom:16px;"><span style="color:#007bff;font-weight: bold;">{{ python.title }}</span> - ({{ python.author }})</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	<div style="margin-top:60px;" class="visit-count">
+		<p>You have visited this page <span style="color:#007bff;">{{ num_visits}}</span>{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+	</div>
+{% endblock %}
