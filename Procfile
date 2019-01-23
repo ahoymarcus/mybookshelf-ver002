@@ -1,1 +1,1 @@
-web: gunicorn catalog:app
+web: py manage.py runserver
